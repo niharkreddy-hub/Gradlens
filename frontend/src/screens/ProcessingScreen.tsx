@@ -45,9 +45,10 @@ export function ProcessingScreen() {
 
     const advanceSteps = () => {
       if (stepIndex < PROCESSING_STEPS.length) {
-        setCurrentStepIndex(stepIndex);
+        const step = PROCESSING_STEPS[stepIndex];
+      setCurrentStepIndex(stepIndex);
         setTimeout(() => {
-          setCompletedSteps((prev) => new Set([...prev, PROCESSING_STEPS[stepIndex].id]));
+          setCompletedSteps((prev) => new Set([...prev, step.id]));
           stepIndex += 1;
           advanceSteps();
         }, 750);
